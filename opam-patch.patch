@@ -1,0 +1,91 @@
+diff --git a/src/core/opamParallel.ml b/src/core/opamParallel.ml
+index a7a00a77..c0341272 100644
+--- a/src/core/opamParallel.ml
++++ b/src/core/opamParallel.ml
+@@ -19,11 +19,11 @@ exception Aborted
+ 
+ module type VERTEX = sig
+   include OpamStd.OrderedType
+-  include Graph.Sig.COMPARABLE with type t := t
++  include GraphMod.Sig.COMPARABLE with type t := t
+ end
+ 
+ module type G = sig
+-  include Graph.Sig.I
++  include GraphMod.Sig.I
+   module Vertex: VERTEX with type t = V.t
+   module Topological: sig
+     val fold: (V.t -> 'a -> 'a) -> t -> 'a -> 'a
+@@ -257,8 +257,8 @@ module Make (G : G) = struct
+ end
+ 
+ module type GRAPH = sig
+-  include Graph.Sig.I
+-  include Graph.Oper.S with type g = t
++  include GraphMod.Sig.I
++  include GraphMod.Oper.S with type g = t
+   module Topological : sig
+     val fold : (V.t -> 'a -> 'a) -> t -> 'a -> 'a
+     val iter : (V.t -> unit) -> t -> unit
+@@ -271,10 +271,10 @@ end
+ 
+ module MakeGraph (X: VERTEX) = struct
+   module Vertex = X
+-  module PG = Graph.Imperative.Digraph.ConcreteBidirectional (Vertex)
+-  module Topological = Graph.Topological.Make (PG)
+-  module Traverse = Graph.Traverse.Dfs(PG)
+-  module Components = Graph.Components.Make(PG)
++  module PG = GraphMod.Imperative.Digraph.ConcreteBidirectional (Vertex)
++  module Topological = GraphMod.Topological.Make (PG)
++  module Traverse = GraphMod.Traverse.Dfs(PG)
++  module Components = GraphMod.Components.Make(PG)
+   module Parallel = Make (struct
+       include PG
+       module Vertex = Vertex
+@@ -282,7 +282,7 @@ module MakeGraph (X: VERTEX) = struct
+       include Traverse
+       include Components
+     end)
+-  module Dot = Graph.Graphviz.Dot (struct
++  module Dot = GraphMod.Graphviz.Dot (struct
+       let edge_attributes _ = []
+       let default_edge_attributes _ = []
+       let get_subgraph _ = None
+@@ -293,7 +293,7 @@ module MakeGraph (X: VERTEX) = struct
+       include PG
+     end)
+   include PG
+-  include Graph.Oper.I (PG)
++  include GraphMod.Oper.I (PG)
+   let transitive_closure ?reflexive g =
+     ignore (add_transitive_closure ?reflexive g)
+ end
+diff --git a/src/core/opamParallel.mli b/src/core/opamParallel.mli
+index f2298ddf..0f469814 100644
+--- a/src/core/opamParallel.mli
++++ b/src/core/opamParallel.mli
+@@ -13,11 +13,11 @@
+ 
+ module type VERTEX = sig
+   include OpamStd.OrderedType
+-  include Graph.Sig.COMPARABLE with type t := t
++  include GraphMod.Sig.COMPARABLE with type t := t
+ end
+ 
+ module type G = sig
+-  include Graph.Sig.I
++  include GraphMod.Sig.I
+   module Vertex: VERTEX with type t = V.t
+   module Topological: sig
+     val fold: (V.t -> 'a -> 'a) -> t -> 'a -> 'a
+@@ -86,8 +86,8 @@ module Make (G : G) : SIG with module G = G
+                            and type G.V.t = G.V.t
+ 
+ module type GRAPH = sig
+-  include Graph.Sig.I
+-  include Graph.Oper.S with type g = t
++  include GraphMod.Sig.I
++  include GraphMod.Oper.S with type g = t
+   module Topological : sig
+     val fold : (V.t -> 'a -> 'a) -> t -> 'a -> 'a
+     val iter : (V.t -> unit) -> t -> unit

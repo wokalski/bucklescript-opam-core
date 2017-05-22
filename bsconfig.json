@@ -1,0 +1,5 @@
+{
+    "name": "opam-core",
+    "bs-dependencies": ["bucklescript-re", "bucklescript-ocamlgraph", "bucklescript-jsonm"],
+    "sources": ["opam/src/core", "src"]
+}

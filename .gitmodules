@@ -1,0 +1,21 @@
+[submodule "opam"]
+	path = opam
+	url = https://github.com/ocaml/opam.git
+[submodule "node_modules/bucklescript-jsonm"]
+	path = node_modules/bucklescript-jsonm
+	url = https://github.com/wokalski/bucklescript-jsonm.git
+[submodule "node_modules/bucklescript-uchar"]
+	path = node_modules/bucklescript-uchar
+	url = https://github.com/wokalski/bucklescript-uchar.git
+[submodule "node_modules/bucklescript-re"]
+	path = node_modules/bucklescript-re
+	url = https://github.com/wokalski/bucklescript-re.git
+[submodule "bucklescript-re"]
+	path = bucklescript-re
+	url = https://github.com/wokalski/bucklescript-re.git
+[submodule "node_modules/bucklescript-uutf"]
+	path = node_modules/bucklescript-uutf
+	url = https://github.com/wokalski/bucklescript-uutf.git
+[submodule "node_modules/bucklescript-ocamlgraph"]
+	path = node_modules/bucklescript-ocamlgraph
+	url = https://github.com/wokalski/bucklescript-ocamlgraph.git

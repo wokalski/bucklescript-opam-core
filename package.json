@@ -1,0 +1,10 @@
+{
+  "name": "bucklescript-opam-core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Wojtek Czekalski <me@wczekalski.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "bs-platform": "^1.7.3"
+  }
+}

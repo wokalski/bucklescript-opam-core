@@ -1,0 +1,16 @@
+####{BSB GENERATED: NO EDIT
+FLG -ppx /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bs-platform/bin/bsppx.exe
+S /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bs-platform/lib/ocaml
+B /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bs-platform/lib/ocaml
+FLG -nostdlib -no-alias-deps -color always -w -40+6+7+27+32..39+44+45
+S /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bucklescript-re/lib/ocaml
+B /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bucklescript-re/lib/ocaml
+S /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bucklescript-ocamlgraph/lib/ocaml
+B /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bucklescript-ocamlgraph/lib/ocaml
+S /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bucklescript-jsonm/lib/ocaml
+B /Users/wczekalski/Documents/Work/Projects/bucklescript-opam-core/node_modules/bucklescript-jsonm/lib/ocaml
+S src
+B lib/bs/src
+S opam/src/core
+B lib/bs/opam/src/core
+####BSB GENERATED: NO EDIT}
